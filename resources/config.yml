@@ -1,0 +1,23 @@
+#  ____  _            _______ _          _____
+# |  _ \| |          |__   __| |        |  __ \
+# | |_) | | __ _ _______| |  | |__   ___| |  | | _____   __
+# |  _ <| |/ _` |_  / _ \ |  | '_ \ / _ \ |  | |/ _ \ \ / /
+# | |_) | | (_| |/ /  __/ |  | | | |  __/ |__| |  __/\ V /
+# |____/|_|\__,_/___\___|_|  |_| |_|\___|_____/ \___| \_/
+
+# BlazinJump Configuration File:
+#   Default Config:
+#    jump-power: 1
+#    multi-world: off
+#    worlds:
+#     - world
+
+# The below config is the power of the double jump
+jump-power: 1
+
+# The below config is to turn on or off multi world support (OPTIONS: on and off)
+multi-world: off
+
+# The below config are the worlds in which BlazinJump will work in
+worlds:
+ - "world"
