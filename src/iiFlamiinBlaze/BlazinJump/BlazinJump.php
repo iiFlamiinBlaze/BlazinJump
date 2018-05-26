@@ -56,9 +56,7 @@ class BlazinJump extends PluginBase implements Listener{
                 $entity->sendMessage(self::PREFIX . TextFormat::RED . "You are not in the right world for you to be able to double jump");
                 return false;
             }
-        }elseif($this->getConfig()->get("multi-world") === "off"){
-            return true;
-        }
+        }elseif($this->getConfig()->get("multi-world") === "off") return true;
         return true;
     }
 
@@ -71,9 +69,7 @@ class BlazinJump extends PluginBase implements Listener{
         $player = $event->getPlayer();
         $this->jumps[$player->getName()]++;
         if($this->multiWorldCheck($player) === false) return;
-        if($this->jumps[$player->getName()] === 1){
-            $this->getServer()->getScheduler()->scheduleDelayedTask(new BlazinJumpTask($this, $player), 30);
-        }
+        if($this->jumps[$player->getName()] === 1) $this->getServer()->getScheduler()->scheduleDelayedTask(new BlazinJumpTask($this, $player), 30);
         if($this->jumps[$player->getName()] === 2){
             $player->knockBack($player, 0, $player->getDirectionVector()->getX(), $player->getDirectionVector()->getZ(), (int)$this->getConfig()->get("jump-power"));
             $this->jumps[$player->getName()] = 0;
