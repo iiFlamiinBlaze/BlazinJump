@@ -34,7 +34,7 @@ class BlazinJumpTask extends PluginTask{
         parent::__construct($plugin);
     }
 
-    public function onRun(int $currentTick){
+    public function onRun(int $tick) : void{
         BlazinJump::getInstance()->jumps[$this->player->getName()] = 0;
     }
 }

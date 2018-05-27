@@ -23,6 +23,7 @@ namespace iiFlamiinBlaze\BlazinJump;
 
 use pocketmine\entity\Entity;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerJumpEvent;
 use pocketmine\event\player\PlayerPreLoginEvent;
 use pocketmine\Player;
@@ -50,14 +51,16 @@ class BlazinJump extends PluginBase implements Listener{
     private function multiWorldCheck(Entity $entity) : bool{
         if(!$entity instanceof Player) return false;
         if($this->getConfig()->get("multi-world") === "on"){
-            if(in_array($entity->getLevel()->getName(), $this->getConfig()->get("worlds"))){
-                return true;
-            }else{
-                $entity->sendMessage(self::PREFIX . TextFormat::RED . "You are not in the right world for you to be able to double jump");
+            if(!in_array($entity->getLevel()->getName(), $this->getConfig()->get("worlds"))){
+                $entity->sendMessage(self::PREFIX . TextFormat::RED . "You are not in the right world to be able to double jump");
                 return false;
             }
         }elseif($this->getConfig()->get("multi-world") === "off") return true;
         return true;
+    }
+
+    public function onJoin(PlayerJoinEvent $event) : void{
+        $this->multiWorldCheck($event->getPlayer());
     }
 
     public function onPreLogin(PlayerPreLoginEvent $event) : void{
@@ -65,15 +68,16 @@ class BlazinJump extends PluginBase implements Listener{
         $this->jumps[$player->getName()] = 0;
     }
 
-    public function onJump(PlayerJumpEvent $event) : void{
+    public function onJump(PlayerJumpEvent $event) : bool{
         $player = $event->getPlayer();
         $this->jumps[$player->getName()]++;
-        if($this->multiWorldCheck($player) === false) return;
         if($this->jumps[$player->getName()] === 1) $this->getServer()->getScheduler()->scheduleDelayedTask(new BlazinJumpTask($this, $player), 30);
         if($this->jumps[$player->getName()] === 2){
+            if($this->multiWorldCheck($player) === false) return false;
             $player->knockBack($player, 0, $player->getDirectionVector()->getX(), $player->getDirectionVector()->getZ(), (int)$this->getConfig()->get("jump-power"));
             $this->jumps[$player->getName()] = 0;
         }
+        return true;
     }
 
     public static function getInstance() : self{

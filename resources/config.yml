@@ -8,15 +8,15 @@
 # BlazinJump Configuration File:
 #   Default Config:
 #    jump-power: 1
-#    multi-world: off
+#    multi-world: "off"
 #    worlds:
-#     - world
+#     - "world"
 
 # The below config is the power of the double jump
 jump-power: 1
 
 # The below config is to turn on or off multi world support (OPTIONS: on and off)
-multi-world: off
+multi-world: "off"
 
 # The below config are the worlds in which BlazinJump will work in
 worlds:
