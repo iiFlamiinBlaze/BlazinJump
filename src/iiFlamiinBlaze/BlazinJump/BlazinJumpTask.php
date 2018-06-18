@@ -22,19 +22,18 @@ declare(strict_types=1);
 namespace iiFlamiinBlaze\BlazinJump;
 
 use pocketmine\Player;
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 
-class BlazinJumpTask extends PluginTask{
+class BlazinJumpTask extends Task{
 
-    /** @var Player $player */
-    private $player;
+	/** @var Player $player */
+	private $player;
 
-    public function __construct(BlazinJump $plugin, Player $player){
-        $this->player = $player;
-        parent::__construct($plugin);
-    }
+	public function __construct(Player $player){
+		$this->player = $player;
+	}
 
-    public function onRun(int $tick) : void{
-        BlazinJump::getInstance()->jumps[$this->player->getName()] = 0;
-    }
+	public function onRun(int $tick) : void{
+		BlazinJump::getInstance()->jumps[$this->player->getName()] = 0;
+	}
 }
