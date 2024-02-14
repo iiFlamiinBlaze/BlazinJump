@@ -1,6 +1,6 @@
 name: BlazinJump
 author: BlazeTheDev
-version: 1.1.0
+version: 1.2.0
 description: A plugin, that allows you to launch when you jump twice, for PocketMine
 main: iiFlamiinBlaze\BlazinJump\BlazinJump
-api: 4.0.0
+api: 5.0.0

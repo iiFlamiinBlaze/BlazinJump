@@ -8,9 +8,9 @@
 Make sure to read all of the license as it could change at anytime.
 
 ## Information
-| Download | View Count | Discord |
-| :---: | :---: | :---: |
- [![Download](https://img.shields.io/badge/download-latest-blue.svg)](https://poggit.pmmp.io/ci/iiFlamiinBlaze/BlazinJump/) | [![View Count](http://hits.dwyl.io/iiFlamiinBlaze/BlazinJump.svg)](http://hits.dwyl.io/iiFlamiinBlaze/BlazinJump) | <a href="https://discord.gg/znEsFsG"><img src="https://discordapp.com/api/guilds/425712766687510528/embed.png" alt="Discord server"/></a> |
+| Download |                                                      Discord                                                      |
+| :---: |:-----------------------------------------------------------------------------------------------------------------:|
+ [![Download](https://img.shields.io/badge/download-latest-blue.svg)](https://poggit.pmmp.io/ci/iiFlamiinBlaze/BlazinJump/) | <a href="https://discord.gg/znEsFsG"><img src="https://discordapp.com/api/guilds/425712766687510528/embed.png" alt="Discord server"/></a> |
 
 This plugin is a double jump plugin. It allows the player when they jump twice to be launched into the air! This plugin is for anyone to use.
 If you have any issues with the plugin, please make an issue [here](https://github.com/iiFlamiinBlaze/BlazinJump/issues/new).

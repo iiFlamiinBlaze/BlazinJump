@@ -34,7 +34,7 @@ use pocketmine\utils\TextFormat;
 
 class BlazinJump extends PluginBase implements Listener{
 	
-	private const VERSION = "v1.1.0";
+	private const VERSION = "v1.2.0";
 	private const PREFIX = TextFormat::AQUA . "BlazinJump" . TextFormat::GOLD . " > ";
 	
 	public array $jumps = [];
